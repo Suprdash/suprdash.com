@@ -27,7 +27,7 @@ importers:
         specifier: ^2.4.1
         version: 2.5.0
       '@preline/collapse':
-        specifier: ^2.4.1
+        specifier: ^2.5.0
         version: 2.5.0
       '@preline/dropdown':
         specifier: ^2.4.1
