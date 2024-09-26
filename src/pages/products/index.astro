@@ -1,33 +1,15 @@
 ---
-// Importing necessary components
+import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@/components/sections/testimonials/TestimonialsSectionAlt.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import CardSmall from "@components/ui/cards/CardSmall.astro";
-import CardWide from "@components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+import insyncImage from "@/assets/pics/insync.png"
+import portfolio from '@/assets/pics/kunal.png'
+import pic1 from "@/assets/pics/advantages-2.jpg"
+import pic2 from "@/assets/pics/social-courses.jpg"
+import "@/assets/styles/fonts.css"
 
-// Importing necessary functions from Astro
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+const pageTitle = "Products ";
 
-// Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<"products">[] = (
-  await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
-  })
-).sort(
-  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id,
-);
-
-// Define variables for page content
-const title: string = "Products";
-const subTitle: string =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
-
-// Testimonial data that will be rendered in the component
 const testimonials = [
   // First testimonial data
   {
@@ -60,76 +42,69 @@ const testimonials = [
     avatarAlt: "Image Description",
   },
 ];
-
-const pageTitle: string = `Products | ${SITE.title}`;
 ---
 
-<MainLayout
-  title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://screwfast.uk/products",
-    "url": "https://screwfast.uk/products",
-    "name": "Hardware Tools | ScrewFast",
-    "description": "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://screwfast.uk",
-      "name": "ScrewFast",
-      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
-    },
-    "inLanguage": "en-US"
-  }}
->
-  <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-        >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
-          )
-        }
+<MainLayout title={pageTitle}>
+  <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+    <div class="mt-4 mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12 ">
+      <div class="flex justify-between items-center gap-12 w-full">
+        <header class="mb-6 text-white">
+          <h1 class="text-4xl sm:text-lg mona tracking-tight">our</h1>
+          <h1 class="text-5xl sm:text-6xl mona tracking-tight">Projects</h1>
+        </header>
+        <!-- <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+          Projects
+        </h1> -->
+
+        <!-- <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block font_helvetica">
+          Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.
+        </p> -->
       </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
-    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
-        })
-      }
+      <div class="group relative overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
+        <img src={pic1.src} alt="Machine Screws" class="h-full w-full object-cover transition duration-300 ease-in-out group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
+
+        </div>
+      </div>
+      <div class="group relative col-span-2 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
+        <img src={insyncImage.src}alt="Assorted Screw Set" class="h-84 w-full object-cover transition duration-300 ease-in-out group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
+
+        </div>
+      </div>
+      <div class="group relative col-span-2 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
+        <img src={portfolio.src} alt="Premium Quality Screws" class="h- w-full object-cover transition duration-300 ease-in-out group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+
+      </div>
+      <div class="group relative overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
+        <img src={pic2.src} alt="Specialized Screws" class="h-full w-full object-cover transition duration-300 ease-in-out group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
+
+        </div>
+      </div>
     </section>
-  </div>
-  <!--Features statistics section-->
-  <FeaturesStatsAlt
-    title="Why Choose ScrewFast?"
+  </div>   
+    <!--Testimonials section-->
+    <TestimonialsSectionAlt
+    title="What Our Customers Say"
+    testimonials={testimonials}
+    />
+
+    <FeaturesStatsAlt
+    title="Why Choose Suprdash?"
     subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
     benefits={[
       "Robust and reliable tools for long-lasting performance.",
       "Innovative solutions tailored to modern construction needs.",
       "Customer support dedicated to your project's success.",
     ]}
-  />
-  <!--Testimonials section-->
-  <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  />
+    />
 </MainLayout>
+

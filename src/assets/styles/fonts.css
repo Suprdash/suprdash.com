@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "db";
+  src:
+    local("HelveticaNeueCyr-Light"),
+    url("/fonts/HelveticaNeueCyr-Light.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: db-2;
+  src:
+    local("HelveticaNeueCyr-Roman"),
+    url("/fonts/HelveticaNeueCyr-Roman.ttf") format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+  font-family: home-header;
+  src:
+    local("MonaSansExpanded-Regular"),
+    url("/fonts/MonaSansExpanded-Regular.ttf") format("truetype");
+}
+
+.font_helvetica {
+  font-family: "db";
+  line-height: 110%;
+
+}
+
+.font_helvetica_roman{
+  font-family: db-2;
+}
+
+.mona{
+  font-family: home-header;
+  font-weight: 100;
+}
